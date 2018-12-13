@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="workflow1" class="poc.spring.bpm.workflow.WorkFlow">
+		<property name="workFlowSequence">
+			<list>
+				<ref bean = "battingAvgTask" />
+				<ref bean = "bowlingAvgTask" />
+				<ref bean = "persistCricketerTask" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="battingAvgTask" class="poc.spring.bpm.workflow.task.BattingAvgTask" />
+	<bean id="bowlingAvgTask" class="poc.spring.bpm.workflow.task.BowlingAvgTask" />
+	<bean id="persistCricketerTask" class="poc.spring.bpm.workflow.task.PersistCricketerTask" />
+
+</beans>
